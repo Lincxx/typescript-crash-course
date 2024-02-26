@@ -135,29 +135,71 @@
 //---------#8 Tuples
 // not used that often
 // tuples
-let person: [string, number, boolean] = ['mario', 30, true]
+// let person: [string, number, boolean] = ['mario', 30, true]
+//
+//
+// // tuples examples - might want to use
+// let hsla: [number, string, string, number]
+// hsla = [200, '100%', '50%', 1]
+//
+//
+// let xy: [number, number]
+// xy = [937.7, 34.3]
+//
+// function useCoords(): [number, number] {
+//     const lat = 100
+//     const long = 230
+//     return [lat, long]
+// }
+//
+// const [lat, long] = useCoords()
+// console.log(lat, long)
+//
+//
+// // named tuples
+// let user: [name: string, age: number]
+// user =  ['Jeremy', 47]
+// console.log(user[1])
 
 
-// tuples examples - might want to use
-let hsla: [number, string, string, number]
-hsla = [200, '100%', '50%', 1]
+//---------#9 Interfaces
 
-
-let xy: [number, number]
-xy = [937.7, 34.3]
-
-function useCoords(): [number, number] {
-    const lat = 100
-    const long = 230
-    return [lat, long]
+// interfaces - define a certain structure - custom types
+//blog author
+interface Author {
+    name: string,
+    avatar: string
 }
 
-const [lat, long] = useCoords()
-console.log(lat, long)
+const authorOne: Author = {name: 'mario', avatar: 'img/mario.png'}
+//const authorTwo: Author = {name: 'mario', avatar: 'img/mario.png', isCool: true}
 
+interface Post {
+    title: string,
+    body: string,
+    tags: string[],
+    create_at: Date,
+    author: Author
+}
 
-// named tuples
-let user: [name: string, age: number]
-user =  ['Jeremy', 47]
-console.log(user[1])
+const newPost: Post = {
+    title: "My First Post",
+    body: "this is interesting",
+    tags: ['gaming', 'tech'],
+    create_at: new Date(),
+    author: authorOne
+}
 
+// as function arg types
+function createPost(post: Post):void {
+    console.log(`Create post ${post.title} by ${post.author.name}`)
+}
+
+createPost(newPost)
+
+// with arrays
+
+let posts: Post[] = []
+
+//posts.push({title: 'hello', body: 'hello'}) //this doesn't work
+posts.push(newPost)
