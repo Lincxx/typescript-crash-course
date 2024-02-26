@@ -67,24 +67,52 @@
 // const p = person.age
 //---------#6 Functions
 // functions
-function add(a, b) {
-    return a + b;
-}
-//add('a', true)// error
-add(1, 2);
-const sub = (a, b) => {
-    return a - b;
+// function add(a: number,b: number): number{
+//     return a + b
+// }
+//
+// //add('a', true)// error
+// add(1,2)
+//
+// const sub = (a: number,b: number): number => {
+//     return a - b
+// }
+//
+// sub(2,3)
+//
+// //void - means nothing is going to be return
+// function addAll(items: number[]):void {
+//     const total = items.reduce((a,c)=> a+c, 0)
+//     console.log(total)
+// }
+//
+// addAll([1,2,3])
+//
+// //return type inference
+// function formatGreeting(name: string, greeting: string) {
+//     return `${greeting}, ${name}`
+// }
+// const result = formatGreeting('jeremy', 'Hello')
+// console.log(result)
+//---------#7 Any type
+//--- any type - any value, any type and so on.
+//it's like a cheat card, pretty just using plain ole JS
+let age;
+let title;
+age = 30;
+age = false;
+title = 24;
+title = {
+    hello: "world"
 };
-sub(2, 3);
-//void - means nothing is going to be return
-function addAll(items) {
-    const total = items.reduce((a, c) => a + c, 0);
-    console.log(total);
+//--- any type in arrays
+let things = [];
+things.push({ id: 123 });
+//--- function & any
+function add(val) {
+    return val + val;
 }
-addAll([1, 2, 3]);
-//return type inference
-function formatGreeting(name, greeting) {
-    return `${greeting}, ${name}`;
-}
-const result = formatGreeting('jeremy', 'Hello');
-console.log(result);
+const res = add("h3llo");
+console.log(res);
+//--- useful when migrating from js to ts
+//--- because using any won't cause error initially
