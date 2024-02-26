@@ -17,20 +17,18 @@
 //
 // something = null
 // anotherThing = undefined
-const authorOne = { name: 'mario', avatar: 'img/mario.png' };
-const newPost = {
-    title: "My First Post",
-    body: "this is interesting",
-    tags: ['gaming', 'tech'],
-    create_at: new Date(),
-    author: authorOne
-};
-// as function arg types
-function createPost(post) {
-    console.log(`Create post ${post.title} by ${post.author.name}`);
+function getRndColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return [r, g, b];
 }
-createPost(newPost);
-// with arrays
-let posts = [];
-//posts.push({title: 'hello', body: 'hello'}) //this doesn't work
-posts.push(newPost);
+console.log(getRndColor());
+const userOne = { name: 'mario', score: 75 };
+const userTwo = { name: 'yoshi', score: 100 };
+function formatUser(user) {
+    console.log(`${user.name} has a sciore of ${user.score}`);
+}
+formatUser(userOne);
+formatUser(userTwo);
+//formatUser({name: 'yoshi', score: 100, age: 34})//error

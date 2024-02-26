@@ -166,40 +166,75 @@
 
 // interfaces - define a certain structure - custom types
 //blog author
-interface Author {
-    name: string,
-    avatar: string
+// interface Author {
+//     name: string,
+//     avatar: string
+// }
+//
+// const authorOne: Author = {name: 'mario', avatar: 'img/mario.png'}
+// //const authorTwo: Author = {name: 'mario', avatar: 'img/mario.png', isCool: true}
+//
+// interface Post {
+//     title: string,
+//     body: string,
+//     tags: string[],
+//     create_at: Date,
+//     author: Author
+// }
+//
+// const newPost: Post = {
+//     title: "My First Post",
+//     body: "this is interesting",
+//     tags: ['gaming', 'tech'],
+//     create_at: new Date(),
+//     author: authorOne
+// }
+//
+// // as function arg types
+// function createPost(post: Post):void {
+//     console.log(`Create post ${post.title} by ${post.author.name}`)
+// }
+//
+// createPost(newPost)
+//
+// // with arrays
+//
+// let posts: Post[] = []
+//
+// //posts.push({title: 'hello', body: 'hello'}) //this doesn't work
+// posts.push(newPost)
+
+
+//---------#10 Type aliases
+
+// type aliases
+
+// example 1 - tuple
+type Rgb = [number, number, number]
+
+function getRndColor(): Rgb{
+    const r = Math.floor(Math.random() * 255 )
+    const g = Math.floor(Math.random() * 255 )
+    const b = Math.floor(Math.random() * 255 )
+
+    return [r,g,b]
 }
 
-const authorOne: Author = {name: 'mario', avatar: 'img/mario.png'}
-//const authorTwo: Author = {name: 'mario', avatar: 'img/mario.png', isCool: true}
+console.log(getRndColor())
 
-interface Post {
-    title: string,
-    body: string,
-    tags: string[],
-    create_at: Date,
-    author: Author
+// example 2 - object literal
+type User = {
+    name: string
+    score: number
 }
 
-const newPost: Post = {
-    title: "My First Post",
-    body: "this is interesting",
-    tags: ['gaming', 'tech'],
-    create_at: new Date(),
-    author: authorOne
+const userOne: User = {name: 'mario', score: 75}
+const userTwo: User = {name: 'yoshi', score: 100}
+
+function formatUser(user: User): void {
+    console.log(`${user.name} has a sciore of ${user.score}`)
 }
 
-// as function arg types
-function createPost(post: Post):void {
-    console.log(`Create post ${post.title} by ${post.author.name}`)
-}
-
-createPost(newPost)
-
-// with arrays
-
-let posts: Post[] = []
-
-//posts.push({title: 'hello', body: 'hello'}) //this doesn't work
-posts.push(newPost)
+formatUser(userOne)
+formatUser(userTwo)
+//formatUser({name: 'yoshi', score: 100, age: 34})//error
