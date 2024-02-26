@@ -97,22 +97,50 @@
 //---------#7 Any type
 //--- any type - any value, any type and so on.
 //it's like a cheat card, pretty just using plain ole JS
-let age;
-let title;
-age = 30;
-age = false;
-title = 24;
-title = {
-    hello: "world"
-};
-//--- any type in arrays
-let things = [];
-things.push({ id: 123 });
-//--- function & any
-function add(val) {
-    return val + val;
-}
-const res = add("h3llo");
-console.log(res);
+// let age: any
+// let title
+//
+// age = 30
+// age = false
+//
+// title = 24
+// title = {
+//     hello: "world"
+// }
+//
+//
+// //--- any type in arrays
+// let things: any[] = []
+//
+// things.push({id:123})
+//
+// //--- function & any
+// function add(val:any): any {
+//     return val + val
+// }
+//
+// const res = add("h3llo")
+//
+// console.log(res)
 //--- useful when migrating from js to ts
 //--- because using any won't cause error initially
+//---------#8 Tuples
+// not used that often
+// tuples
+let person = ['mario', 30, true];
+// tuples examples - might want to use
+let hsla;
+hsla = [200, '100%', '50%', 1];
+let xy;
+xy = [937.7, 34.3];
+function useCoords() {
+    const lat = 100;
+    const long = 230;
+    return [lat, long];
+}
+const [lat, long] = useCoords();
+console.log(lat, long);
+// named tuples
+let user;
+user = ['Jeremy', 47];
+console.log(user[1]);
