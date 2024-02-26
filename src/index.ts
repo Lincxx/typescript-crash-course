@@ -24,9 +24,46 @@
 //node --watch dist/index.js
 
 //#5
-// Arrays
-let names: string[]
+//--- Arrays
+let names: string[] = ["lee", "bobby", "fred"]
+let ages: number[] = [1,2,3,4]
 
-//object literals
+//push new values
+names.push("jeremy")
+ages.push(23)
 
-//type inference w/ objects literals
+//---- type inference with arrays
+let fruits = ['apple', 'pears', 'grapes', 'mangoes']
+
+//fruits.push(true) // error
+fruits.push('peaches')
+
+const f = fruits[3]
+
+//this is called a union type
+let things = [1,true, 'hello']
+const t = things[0]
+
+//--- object literals
+let user: {firstName: string, age: number, id: number} = {
+    firstName: "Mario",
+    age: 43,
+    id: 12312
+}
+
+//user.firstName = 324//error
+
+//add property
+//user.email = "w@mail.com" //error
+
+//---- type inference w/ objects literals
+let person = {
+    name: 'luigi',
+    age: 35
+}
+
+//person.name = true //error
+//person.age = 45
+
+const p = person.age
+
