@@ -82,7 +82,7 @@ function addAll(items) {
     console.log(total);
 }
 addAll([1, 2, 3]);
-//returntype inference
+//return type inference
 function formatGreeting(name, greeting) {
     return `${greeting}, ${name}`;
 }
