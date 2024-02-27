@@ -210,31 +210,61 @@
 // type aliases
 
 // example 1 - tuple
-type Rgb = [number, number, number]
+// type Rgb = [number, number, number]
+//
+// function getRndColor(): Rgb{
+//     const r = Math.floor(Math.random() * 255 )
+//     const g = Math.floor(Math.random() * 255 )
+//     const b = Math.floor(Math.random() * 255 )
+//
+//     return [r,g,b]
+// }
+//
+// console.log(getRndColor())
+//
+// // example 2 - object literal
+// type User = {
+//     name: string
+//     score: number
+// }
+//
+// const userOne: User = {name: 'mario', score: 75}
+// const userTwo: User = {name: 'yoshi', score: 100}
+//
+// function formatUser(user: User): void {
+//     console.log(`${user.name} has a sciore of ${user.score}`)
+// }
+//
+// formatUser(userOne)
+// formatUser(userTwo)
+// //formatUser({name: 'yoshi', score: 100, age: 34})//error
 
-function getRndColor(): Rgb{
-    const r = Math.floor(Math.random() * 255 )
-    const g = Math.floor(Math.random() * 255 )
-    const b = Math.floor(Math.random() * 255 )
 
-    return [r,g,b]
+//---------#11 Union Types
+
+// unions types
+let someId: number | string
+someId = 1
+someId = "srte"
+
+let email: string | null = null
+
+email = "m@email.com"
+
+type Id = number | string
+let another: Id
+another = '3242342'
+another = 2
+
+// union pitfall
+function swapIdType(id: Id): Id {
+    //can only use props and  methods common to
+    // both number and string types
+    // parseInt(id) --> not allowed
+
+    //parseInt(id)//error
+
+    return id
 }
 
-console.log(getRndColor())
-
-// example 2 - object literal
-type User = {
-    name: string
-    score: number
-}
-
-const userOne: User = {name: 'mario', score: 75}
-const userTwo: User = {name: 'yoshi', score: 100}
-
-function formatUser(user: User): void {
-    console.log(`${user.name} has a sciore of ${user.score}`)
-}
-
-formatUser(userOne)
-formatUser(userTwo)
-//formatUser({name: 'yoshi', score: 100, age: 34})//error
+swapIdType(5)
